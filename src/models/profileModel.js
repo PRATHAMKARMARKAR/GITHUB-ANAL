@@ -109,14 +109,12 @@ async function upsertProfile(githubUser, insights) {
 ]
     );
 
-    // Get the profile id (insert or existing)
     const [[profileRow]] = await conn.execute(
       "SELECT id FROM github_profiles WHERE username = ?",
       [login]
     );
     const profileId = profileRow.id;
 
-    // Log to analysis_history
     await conn.execute(
       `INSERT INTO analysis_history
          (username, profile_id, followers_at_analysis, public_repos_at_analysis, overall_score_at_analysis)

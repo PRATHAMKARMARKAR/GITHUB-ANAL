@@ -64,8 +64,8 @@ app.use(errorHandler);
 async function start() {
   await testConnection();
   app.listen(PORT, () => {
-    console.log(`🚀 Server running at http://localhost:${PORT}`);
-    console.log(`📖 API docs at http://localhost:${PORT}/`);
+    console.log(`Server running at http://localhost:${PORT}`);
+    console.log(`API docs at http://localhost:${PORT}/`);
   });
 }
 
